@@ -1,0 +1,62 @@
+
+FUNCTION 
+There are two types of functions in C programming:
+Library Functions: These are the functions which are declared in the C header files such as scanf(), printf().
+User-defined functions: These are the functions which are created by the C programmer.
+User-defined functions
+Functions are set of statements grouped together as a package to do a particular task. These statements are enclosed inside curly braces.Use of functions increases modularity reusability  and logical clarity of program. There are three elements in function : function definition ,function call, function declaration.
+return_type function_name( parameter list ) {
+   set of statements;
+}
+return_type : specifies the type of value the function is expected to  return .Eg int ,float
+function name: can  be any valid identifier
+parameter list  : these parameters declare the  variables that receives the data from calling function.If a function is not receiving values from the calling function, keyword void is used here.
+Body of a function include local declarations ,statement that define action to be performed by function and return statement. Return statement may  be in  return;  or return(expression); form.
+void printlen(void)
+{
+int len=7;
+printf("len is",len);
+return;
+}
+
+
+Function call: When a program calls a function, the program control is transferred to the called function. Called function performs a defined task and when its return statement is executed or when its function-ending closing brace is reached, it returns the program control back to the calling function . A function can be called using function name followed by set of arguments
+eg:  printlen();
+function declaration: prototype declaration can be placed above all the functions(global declaration means scope is global) or inside a function definition(local declaration means scope is local).
+return_type function_name( parameteer list );
+
+Arguments
+Arguments that are actually passed in function call are called actual arguments.
+Formal parameter is used in a function declaration. Its scope is local to the function definition. They are a copy of actual arguments. Thus changes made in formal argument doesnot affect actual arguments.
+Eg:
+#include<stdio.h>   //header file
+int add( int,int);  //function declaration
+main()               
+{   
+    int num1=10,num2=20,sum;  
+
+   sum=add(num1,num2);    //function call
+    printf(" %d",sum);  
+}  
+int add(int a,int b)          
+{  
+int sumOfTwo;//local declaration                                     function definition
+sumOfTwo=a+b;//statements                                                                                              
+return(sumOfTwo);  //return statement
+}  
+
+Here num1 and num2 are actual arguments.a and b are formal argument .As arguments are passed by value changes don’t affect.
+
+Call by reference  copies the address of an argument into the formal parameter. Inside the function, the address is used to access the actual argument used in the call. This means that changes made to the parameter affect the argument. 
+
+
+void swap(int *x, int *y) {
+
+   int temp;
+   temp = *x;    // save the value at address x 
+   *x = *y;      // put y into x //
+   *y = temp;    // put temp into y 
+  
+   return;
+}
+
